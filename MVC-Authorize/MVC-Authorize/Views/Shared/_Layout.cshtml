@@ -16,16 +16,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("User Authorize", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+       
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li style="color:white;display:flex;padding-bottom:inherit;align-items:center;justify-content:center;padding-top:15px">Hoş Geldiniz ! @HttpContext.Current.User.Identity.Name</li>
                     <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
                     <li>@Html.ActionLink("Departmanlar", "Index", "Departments")</li>
                     <li>@Html.ActionLink("Çalışanlar", "Index", "Employees")</li>
-                    <li>@Html.ActionLink("Kullanıcılar", "Index", "Users")</li>
-                    <li>@Html.ActionLink("Hakkımda", "About", "Home")</li>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>@Html.ActionLink("Kullanıcılar", "Index", "Users")</li>
+                    }
+                    @if (User.IsInRole("admin,user"))
+                    {
+                        <li>@Html.ActionLink("Hakkımda", "About", "Home")</li>
+                    }
                     <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Çıkış Yap", "LogOut", "Security")</li>
+
                 </ul>
             </div>
         </div>
