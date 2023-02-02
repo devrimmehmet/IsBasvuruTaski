@@ -10,6 +10,7 @@ using MVC_Authorize.Models.Entity;
 
 namespace MVC_Authorize.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class UsersController : Controller
     {
         private devrimme_ramazanBeyDbEntities db = new devrimme_ramazanBeyDbEntities();
