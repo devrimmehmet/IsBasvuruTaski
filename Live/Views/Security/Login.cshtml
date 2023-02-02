@@ -1,0 +1,87 @@
+﻿@model MVC_Authorize.Models.Entity.Tbl_User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Giriş Formu</title>
+    <link href="~/Content/login-css.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+</head>
+<body>
+  
+    @using (Html.BeginForm("Login","Security",FormMethod.Post))
+            {
+
+            
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <section class="h-100 gradient-form" style="background-color: #eee;">
+            <div class="container py-5 h-100" style="padding-top:20%">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-xl-10">
+                        <div class="card rounded-3 text-black">
+                            <div class="row g-0">
+                                <div class="col-md-1"></div>
+                                <div class="col-lg-5">
+                                    <div class="card-body p-md-5 mx-md-4">
+
+                                        <div class="text-center">
+                                          
+                                            <img src="~/Content/logo_siyah.ico" style="width:20%;" alt="logo" />
+                                            <h4 class="mt-1 mb-5 pb-1">İşe Giriş Taskı Giriş Sayfası</h4>
+                                        </div>
+
+                                        <form>
+                                            <p>Lütfen Hesabınıza Giriş Yapın</p>
+
+                                            <div class="form-outline mb-4">
+                                              
+                                                @Html.LabelFor(m => m.Username)
+                                                @Html.TextBoxFor(m => m.Username, new { @class = "form-control", PlaceHolder = "Kullanıcı Adınızı Giriniz." })
+
+                                            </div>
+
+                                            <div class="form-outline mb-4">
+                                              @Html.LabelFor(n=>n.Password)
+                                              @Html.PasswordFor(n=>n.Password, new { @class = "form-control", PlaceHolder = "Parolanızı Giriniz." })
+                                            </div>
+
+                                            <div class="text-center pt-1 mb-5 pb-1">
+                                                <br />
+                                                <p style="color:red;">@ViewBag.Message</p>
+                                                <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">
+                                                    Giriş Yap
+                                                </button>
+
+                                            </div>
+
+                                         
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 d-flex align-items-center gradient-custom-2">
+                                    <div class="text-white px-3 py-4 p-md-5 mx-md-4" style="padding-top:30%">
+                                        <h4 class="mb-4">Bu Proje Bir İş Başvurusu Taskıdır.</h4>
+                                        <p class="small mb-0" style="height:200px">
+                                          İlgili Logo Başvurulan Firmaya Aittir. İş Başvurusu Sırasında Ramazan Akpınar tarafından tarafıma verilen taskı bu şekilde sunum yapabilmek için bu çalışma yapılmıştır.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    }
+</body>
+</html>
