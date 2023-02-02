@@ -11,12 +11,16 @@ namespace MVC_Authorize.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class Tbl_User
     {
         public int Id { get; set; }
+        [DisplayName("Kullanýcý Adý")]
         public string Username { get; set; }
+        [DisplayName("Parola")]
         public string Password { get; set; }
+        [DisplayName("Yetki")]
         public string Role { get; set; }
     }
 }
