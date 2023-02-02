@@ -10,16 +10,18 @@ using MVC_Authorize.Models.Entity;
 
 namespace MVC_Authorize.Controllers
 {
+    [Authorize(Roles = "user,admin")]
     public class DepartmentsController : Controller
     {
         private devrimme_ramazanBeyDbEntities db = new devrimme_ramazanBeyDbEntities();
 
         // GET: Departments
+       
         public ActionResult Index()
         {
             return View(db.Tbl_Department.ToList());
         }
-
+       
         // GET: Departments/Details/5
         public ActionResult Details(int? id)
         {
@@ -34,13 +36,13 @@ namespace MVC_Authorize.Controllers
             }
             return View(tbl_Department);
         }
-
+       
         // GET: Departments/Create
         public ActionResult Create()
         {
             return View();
         }
-
+      
         // POST: Departments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -57,7 +59,7 @@ namespace MVC_Authorize.Controllers
 
             return View(tbl_Department);
         }
-
+     
         // GET: Departments/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -72,7 +74,7 @@ namespace MVC_Authorize.Controllers
             }
             return View(tbl_Department);
         }
-
+       
         // POST: Departments/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -88,7 +90,7 @@ namespace MVC_Authorize.Controllers
             }
             return View(tbl_Department);
         }
-
+       
         // GET: Departments/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -103,7 +105,7 @@ namespace MVC_Authorize.Controllers
             }
             return View(tbl_Department);
         }
-
+       
         // POST: Departments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
