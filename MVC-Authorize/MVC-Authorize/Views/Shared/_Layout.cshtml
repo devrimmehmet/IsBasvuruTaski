@@ -33,7 +33,7 @@
                     {
                         <li>@Html.ActionLink("Kullanıcılar", "Index", "Users")</li>
                     }
-                    @if (User.IsInRole("admin,user"))
+                    @if (User.IsInRole("admin"))
                     {
                         <li>@Html.ActionLink("Hakkımda", "About", "Home")</li>
                     }
