@@ -10,6 +10,8 @@ using MVC_Authorize.Models.Entity;
 
 namespace MVC_Authorize.Controllers
 {
+    [Authorize(Roles = "user,admin")]
+   
     public class EmployeesController : Controller
     {
         private devrimme_ramazanBeyDbEntities db = new devrimme_ramazanBeyDbEntities();
@@ -37,6 +39,7 @@ namespace MVC_Authorize.Controllers
         }
 
         // GET: Employees/Create
+       
         public ActionResult Create()
         {
             ViewBag.Department_Id = new SelectList(db.Tbl_Department, "Id", "DepartmentName");
@@ -95,6 +98,7 @@ namespace MVC_Authorize.Controllers
         }
 
         // GET: Employees/Delete/5
+      
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -108,7 +112,7 @@ namespace MVC_Authorize.Controllers
             }
             return View(tbl_Employee);
         }
-
+ 
         // POST: Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
